@@ -43,5 +43,42 @@ module.exports = function(environment) {
 
   }
 
+  ENV.contentSecurityPolicy = {
+  'default-src': "'none'",
+  'script-src': "'self'",
+  'font-src': "'self'",
+  'connect-src': "'self'",
+  'img-src': "'self'",
+  'style-src': "'self' 'unsafe-inline'",
+  'media-src': "'self'"
+}
+
+  // all settings are optionals
+  ENV.imgManager = {
+    // how many times to try to load an image (default: 1)
+    maxTries: 3,
+    // wait 10 milliseconds before trying to load more images (default: 1)
+    delay: 1,
+    // how many images to try to load in a raw (if 0 then it'll load all at once) (default: 0)
+    batchSize: 0,
+    // should we start loading a source image only when it appear in the viewport (default: true)
+    lazyLoad: true,
+    // the image to use while loading the real image (default: null)
+    loadingSrc: 'assets/loading-img.png',
+    // the image to use when an image has failed to load (default: null)
+    errorSrc: 'assets/error-img.png',
+    // in the `rules`, you can define specific settings for each image depending on its `src` (default: null)
+    rules: [
+      {match: 'image', delay: 1000, batchSize: 1}
+    ],
+    // ------ global only settings (show with their default values) -----
+    // css class to use when loading an image
+    loadingClass: 'loading',
+    // css class to use when the load was successful
+    successClass: 'success',
+    // css class to use when the load has failed
+    errorClass: 'error'
+  };
+
   return ENV;
 };

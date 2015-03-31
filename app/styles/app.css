@@ -1,0 +1,23 @@
+img {
+	width: 100px;
+}
+
+.tst {
+	border: dashed;
+	background-color: #FF0000;
+}
+
+/*span {
+	border: dashed;
+	background-color: #FF0000;
+}
+
+li {
+	background-color: #FF0000;
+}
+*/
+
+.success {
+	background-color: #FF0000;
+	border: dashed;
+}
